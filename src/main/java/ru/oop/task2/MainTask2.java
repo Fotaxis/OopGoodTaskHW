@@ -29,8 +29,7 @@ public class MainTask2 {
      * @see Position
      */
     // TODO реализовать метод moveTo(...)
-    public void moveTo(Person person, Position destination) {
-        Transport transport = new();
+    public void moveTo(Person person, Position destination, Transport transport) {
         if (person.getPosition() != transport.getPosition()){
             person.walk(transport.getPosition());
         }

@@ -1,7 +1,7 @@
 package ru.oop.task2;
 
 /**
- * Интерфейс транспорта
+ * Интерфейс транспорта со своей позицией
  */
 public interface Transport extends Positioned{
 
