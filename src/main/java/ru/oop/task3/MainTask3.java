@@ -1,5 +1,7 @@
 package ru.oop.task3;
 
+import java.util.List;
+
 /**
  * <b>Задача 3:</b><br>
  * То же самое, что и задача 2, но добраться нужно с пересадками<br>
@@ -8,7 +10,7 @@ package ru.oop.task3;
  *        new Bus("50", person));}
  * <ul>
  *   <li>Код не должен превышать 12 строк</li>
- *   <li>Запрещено реализовывать конструкторы и методы, кроме moveTo(Person person, Position destination)</li>
+ *   <li>Запрещено реализовывать конструкторы и методы, кроме moveTo(...)</li>
  *   <li>Запрещено добавлять новые методы в класс Main</li>
  *   <li>Разрешено создавать новые классы и интерфейсы</li>
  * </ul>
@@ -24,5 +26,15 @@ public class MainTask3 {
      * @see Person
      * @see Position
      */
-    // TODO реализовать метод moveTo(...)
+    public void moveTo(Person person, Position destination, List<Transport> transports) {
+        for (int i = 0; i < transports.size() - 1; i++) {
+            if (person.getPosition() != transports.get(i).getPosition()) {
+                person.walk(transports.get(i).getPosition());
+            }
+            transports.get(i).moveTo(transports.get(i + 1).getPosition());
+        }
+        if (!transports.getLast().moveTo(destination)) {
+            person.walk(destination);
+        }
+    }
 }
